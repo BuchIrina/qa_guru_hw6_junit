@@ -1,0 +1,34 @@
+ @Test
+   void YandexSearchTest() {
+        open("https://ya.ru/");
+        $("#text").setValue("Selenide");
+        $("button[type = 'submit']").click();
+        $$("li.serp-item")
+                .shouldHave(CollectionCondition.size(10))
+                .first()
+                .shouldHave(text("selenide"));
+    }
+
+TESTS DATA = [
+    ["Selenide" - "Selenide - это фреймворк для автоматизированного тестирования"],
+    ["JUnit" - "A programmer-oriented testing framework for Java"]
+]
+
+    1) TITLE
+    Checking the numbers of search results in Yandex on request [test_data][0]
+
+    2) PRIORITY
+    majority
+
+    3) PRECONDITION (optional)
+
+    4)STEPS:
+    - open browser
+    - open page "https://ya.ru/" in browser
+    - type in search field [test_data][0]
+    - pres the button "Search"
+
+    5)EXPECTED RESULTS
+    In result of the search appear 10 cards and the first of them contains word [test_data][1]
+
+
