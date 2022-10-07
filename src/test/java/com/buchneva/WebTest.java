@@ -24,7 +24,7 @@ public class WebTest {
 
     @ValueSource(strings = {"Selenide", "JUnit"})
     @ParameterizedTest(name = "Checking the numbers of search results in Yandex on request {0}")
-    void YandexSearchCommonTest(String testData) {
+    void yandexSearchCommonTest(String testData) {
         open("https://ya.ru/");
         Configuration.holdBrowserOpen = true;
         $("#text").setValue(testData);
@@ -40,7 +40,7 @@ public class WebTest {
             "JUnit, A programmer-oriented testing framework for Java"
     })
     @ParameterizedTest(name = "Checking the numbers of search results in Yandex on request {0}")
-    void YandexSearchCommonTestDifferentExpectedText(String searchQuery, String expectedText) {
+    void yandexSearchCommonTestDifferentExpectedText(String searchQuery, String expectedText) {
         open("https://ya.ru/");
         Configuration.holdBrowserOpen = true;
         $("#text").setValue(searchQuery);
